@@ -1,5 +1,5 @@
-@login
-Feature: Login test
+@producttest
+Feature: Product Store
 
   Background:
     Given navigate to the page

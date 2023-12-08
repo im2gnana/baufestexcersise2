@@ -3,17 +3,15 @@ package page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.function.Function;
 
-import static stepDef.stepDef.driver;
+import static stepDef.stepDefUI.driver;
 
-public class LoginPage{
+public class ProductStorePage {
     private final static By SIGNUP_BTN = By.id("signin2");
     private final static By SIGNUP_MODEL_WINDOW_HEADER = By.cssSelector("#signInModalLabel");
     private final static By USERNAME_LABEL = By.cssSelector("[for='sign-username']");

@@ -11,16 +11,13 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import page.LoginPage;
-import static page.LoginPage.sleep;
+import page.ProductStorePage;
+import static page.ProductStorePage.sleep;
 
-import java.util.concurrent.TimeUnit;
-
-public class stepDef {
+public class stepDefUI {
 
     public static WebDriver driver;
-    private LoginPage loginPage;
+    private ProductStorePage productStorePage;
     public static String UserName;
     public static String Password;
 
@@ -41,8 +38,8 @@ public class stepDef {
     @Given("^navigate to the page")
     public  void open(){
         driver.get("https://www.demoblaze.com/index.html");
-        if(loginPage == null){
-            loginPage=new LoginPage();
+        if(productStorePage == null){
+            productStorePage=new ProductStorePage();
         }
         driver.getTitle();
         System.out.println(driver.getTitle());
@@ -50,37 +47,37 @@ public class stepDef {
 
     @When("^click on signup button")
     public  void signUp(){
-        WebElement signUp = loginPage.getSignUpBtn();
+        WebElement signUp = productStorePage.getSignUpBtn();
         signUp.click();
         sleep(1000);
     }
 
     @And("^Verify the \"([^\"]*)\" model window is displayed")
     public  void signUp_model_window_header(String btnText) {
-        WebElement signUpModelWindowHeader = loginPage.getSignUpModelWindowHeader();
+        WebElement signUpModelWindowHeader = productStorePage.getSignUpModelWindowHeader();
         String actualTxt = signUpModelWindowHeader.getText();
         Assert.assertEquals("Model window is displayed",btnText,actualTxt);
     }
     @And("^Verify the \"user name\" label is displayed")
     public  void signUp_model_username_label() {
-        WebElement username = loginPage.getUserNameLabel();
+        WebElement username = productStorePage.getUserNameLabel();
         Assert.assertEquals("Username label is displayed","Username:",username.getText());
     }
     @Then("^provide username as \"([^\"]*)\"")
     public  void signUp_model_username_input(String inputUsrName) {
-        WebElement userNameInput = loginPage.getUserNameInput();
+        WebElement userNameInput = productStorePage.getUserNameInput();
         String randomTxt= RandomStringUtils.randomAlphabetic(5);
         UserName = inputUsrName+randomTxt.toLowerCase();
         userNameInput.sendKeys(UserName);
     }
     @And("^Verify the \"password\" label is displayed")
     public  void signUp_model_password_label() {
-        WebElement passwordLabel = loginPage.getPasswordLabel();
+        WebElement passwordLabel = productStorePage.getPasswordLabel();
         Assert.assertEquals("Username label is displayed","Password:",passwordLabel.getText());
     }
     @Then("^provide password as \"([^\"]*)\"")
     public  void signUp_model_password_input(String inputPassword) {
-        WebElement passWordInput = loginPage.getPasswordInput();
+        WebElement passWordInput = productStorePage.getPasswordInput();
         String randomPasswordTxt= RandomStringUtils.randomAlphanumeric(5);
         Password = inputPassword+randomPasswordTxt.toLowerCase();
         passWordInput.sendKeys(Password);
