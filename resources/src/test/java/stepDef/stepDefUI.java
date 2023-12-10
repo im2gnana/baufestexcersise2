@@ -12,6 +12,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import page.ProductStorePage;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
+
 import static page.ProductStorePage.sleep;
 
 public class stepDefUI {
@@ -20,14 +27,23 @@ public class stepDefUI {
     private ProductStorePage productStorePage;
     public static String UserName;
     public static String Password;
+    public static String URL;
+    Properties props=new Properties();
 
-//    public WebDriver getDriver() {
+
+    public void getProperties() throws IOException {
+        FileReader reader=new FileReader("src/config.properties");
+        props.load(reader);
+        URL = props.getProperty("url");
+    }
+    //    public WebDriver getDriver() {
 //        return this.driver;
 //    }
 
     @Before
     public void before(){
         driver = new ChromeDriver();
+        sleep(500);
         //this.driver=driver;
     }
     @After
@@ -36,8 +52,9 @@ public class stepDefUI {
     }
 
     @Given("^navigate to the page")
-    public  void open(){
-        driver.get("https://www.demoblaze.com/index.html");
+    public  void open() throws IOException {
+        getProperties();
+        driver.get(URL);
         if(productStorePage == null){
             productStorePage=new ProductStorePage();
         }

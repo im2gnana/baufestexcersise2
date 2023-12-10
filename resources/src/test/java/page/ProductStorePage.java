@@ -18,6 +18,8 @@ public class ProductStorePage {
     private final static By USERNAME_INPUT_FIELD = By.id("sign-username");
     private final static By PASSWORD_LABEL = By.cssSelector("[for='sign-password']");
     private final static By PASSWORD_INPUT_FIELD = By.id("sign-password");
+    private final static By LOGIN_USERNAME_INPUT_FIELD = By.id("loginusername");
+    private final static By LOGIN_PASSWORDINPUT_FIELD = By.id("loginpassword");
     public Wait waitForVisible(){
         Wait<WebDriver> waitForVisibleInside = new WebDriverWait(driver, Duration.ofSeconds(10));
         return waitForVisibleInside;
