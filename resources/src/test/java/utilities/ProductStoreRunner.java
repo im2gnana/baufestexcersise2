@@ -5,6 +5,7 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/resources/features"}, glue = {"classpath:stepDef"}, monochrome = true, tags ="@producttest")
+@CucumberOptions(features = {"src/resources/features"}, glue = {"classpath:stepDef"}, monochrome = true, tags ="@producttest"
+       , plugin = {"pretty","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"})
 public class ProductStoreRunner {
 }

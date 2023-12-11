@@ -69,7 +69,7 @@ public class stepDefAppium {
     public  void login_button_homescreen(){
         WebElement lgnBtn = appiumMobilePage.getLoginBtn();
         lgnBtn.click();
-        sleep(2000);
+        sleep(3000);
     }
     @And("^Enter the input value \"([^\"]*)\" in input field")
     public  void forms_input_field(String inputtext){
@@ -148,7 +148,7 @@ public class stepDefAppium {
         inputValue.click();
         sleep(1000);
     }
-    @And("^Verify the \"([^\"]*)\" is displayed")
+    @And("^Verify the \"([^\"]*)\" is displayed$")
     public  void text_display(String textMsg){
         WebElement inputValue = appiumDriver.findElement(By.xpath("//android.widget.TextView[@text=\""+textMsg+"\"]"));
         String expectedMsg = inputValue.getText();
