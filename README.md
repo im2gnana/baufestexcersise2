@@ -36,4 +36,46 @@
 - Appium
 - Android Studio
 
-#What is new?
+#What is implemented?
+Appium for Mobile automation
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>9.0.0</version>
+        </dependency>
+
+Rest Assured for API automation
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.3.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        What also can be used?
+        
+          <dependency>
+          <groupId>com.squareup.okhttp3</groupId>
+          <artifactId>okhttp</artifactId>
+          <version>5.0.0-alpha.11</version>
+          </dependency>
+          OR
+          <dependency>
+          <groupId>com.konghq</groupId>
+          <artifactId>unirest-java</artifactId>
+          <version>4.0.0-RC2</version>
+          </dependency>
+          
+Allure Result
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
+            <version>2.25.0</version>
+        </dependency>
+
+What need to be fixed?
+Since the driver has been declared the stepdef itself. Its opening while running API script and also we need appium dependency application as well to run UI scripts. This should be fixed by creating browser class file.
+
+What is not completed?
+Mobile automation webview is not developed since the page is not working or the service might be down.
+<img width="1431" alt="Screenshot 2023-12-10 at 11 22 12 PM" src="https://github.com/im2gnana/baufestexcersise2/assets/153252230/5d44ac90-e2e7-4acf-aa17-ef4f8ee69695">
